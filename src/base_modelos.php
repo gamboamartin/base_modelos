@@ -7,31 +7,28 @@ class base_modelos extends validacion
 {
 
     /**
-     *
+     * Válida los datos de una lista de entrada, debe existir la clase y no pueden venir los elementos vacios
+     * También debe existe el namespace models
      * @param string $seccion
      * @param string $accion
-     * @return array
+     * @return array|bool
      */
-    public function valida_datos_lista_entrada(string $seccion, string $accion): array
+    public function valida_datos_lista_entrada(string $seccion, string $accion): array|bool
     {
-
         $seccion = str_replace('models\\', '', $seccion);
         $clase_model = 'models\\' . $seccion;
 
         if ($seccion === '') {
             return $this->error->error('Error seccion no puede venir vacio', $seccion);
-
         }
         if (!class_exists($clase_model)) {
             return $this->error->error('Error no existe la clase', $seccion);
-
         }
         if ($accion === '') {
             return $this->error->error('Error no existe la accion', $accion);
-
         }
 
-        return array('mensaje' => $accion);
+        return true;
     }
 
     /**
@@ -54,7 +51,7 @@ class base_modelos extends validacion
 
 
     public function valida_transaccion_activa(bool  $aplica_transaccion_inactivo, int $registro_id, string $tabla,
-                                              array $registro): array
+                                              array $registro): array|bool
     {
         if (!$aplica_transaccion_inactivo) {
             if ($registro_id <= 0) {
@@ -69,8 +66,9 @@ class base_modelos extends validacion
             }
         }
 
-        return array('mensaje' => 'aplica transaccion');
+        return true;
     }
+
 
 
 }
