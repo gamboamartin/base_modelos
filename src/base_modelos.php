@@ -8,6 +8,7 @@ class base_modelos extends validacion
 {
 
     /**
+     * PROBADO
      * Válida los datos de una lista de entrada, debe existir la clase y no pueden venir los elementos vacios
      * También debe existe el namespace models
      * @param string $seccion
@@ -33,6 +34,7 @@ class base_modelos extends validacion
     }
 
     /**
+     * PROBADO
      * Funcion para validar si una vivienda puede ser o no entregada
      * @param array $cliente
      * @return array|bool
@@ -57,6 +59,7 @@ class base_modelos extends validacion
 
 
     /**
+     * 
      * Válida si una operacion en un registro está inactiva en su campo status data error
      * @param bool $aplica_transaccion_inactivo
      * @param int $registro_id
