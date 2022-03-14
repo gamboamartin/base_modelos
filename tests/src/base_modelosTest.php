@@ -1,10 +1,10 @@
 <?php
 namespace tests\src;
 
-use models\class_test;
+
 use gamboamartin\base_modelos\base_modelos;
 use gamboamartin\errores\errores;
-use tests\test;
+use gamboamartin\test\test;
 
 
 class base_modelosTest extends test {
@@ -37,7 +37,7 @@ class base_modelosTest extends test {
         $this->assertTrue(errores::$error);
         errores::$error = false;
 
-        $seccion = "class_test";
+        $seccion = "prueba";
         $accion = "";
 
         $resultado = $base_modelo->valida_datos_lista_entrada($seccion, $accion);
@@ -47,7 +47,7 @@ class base_modelosTest extends test {
 
         errores::$error = false;
 
-        $seccion = "class_test";
+        $seccion = "prueba";
         $accion = "x";
 
         $resultado = $base_modelo->valida_datos_lista_entrada($seccion, $accion);

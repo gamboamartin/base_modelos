@@ -56,5 +56,6 @@ unit_test/prueba.zip
 .phpunit.result.cache
 /.vscode/
 
-
+composer.lock
+tests/config.php
 /vendor/
