@@ -116,8 +116,8 @@ class base_modelosTest extends test {
         $registro_id = -1;
         $tabla = '';
         $registro = array();
-        $resultado = $base_modelo->valida_transaccion_activa($aplica_transaccion_inactivo, $registro_id,
-            $tabla, $registro);
+        $resultado = $base_modelo->valida_transaccion_activa(aplica_transaccion_inactivo: $aplica_transaccion_inactivo,
+            registro: $registro, registro_id: $registro_id, tabla: $tabla);
         $this->assertIsArray( $resultado);
         $this->assertStringContainsStringIgnoringCase('Error la tabla esta vacia', $resultado['mensaje']);
         $this->assertTrue(errores::$error);
@@ -128,8 +128,8 @@ class base_modelosTest extends test {
         $registro_id = -1;
         $tabla = 'a';
         $registro = array();
-        $resultado = $base_modelo->valida_transaccion_activa($aplica_transaccion_inactivo, $registro_id,
-            $tabla, $registro);
+        $resultado = $base_modelo->valida_transaccion_activa(aplica_transaccion_inactivo: $aplica_transaccion_inactivo,
+            registro: $registro, registro_id: $registro_id, tabla: $tabla);
         $this->assertIsArray( $resultado);
         $this->assertStringContainsStringIgnoringCase('Error el id debe ser mayor a 0', $resultado['mensaje']);
         $this->assertTrue(errores::$error);
@@ -140,8 +140,8 @@ class base_modelosTest extends test {
         $registro_id = 1;
         $tabla = 'a';
         $registro = array();
-        $resultado = $base_modelo->valida_transaccion_activa($aplica_transaccion_inactivo, $registro_id,
-            $tabla, $registro);
+        $resultado = $base_modelo->valida_transaccion_activa(aplica_transaccion_inactivo: $aplica_transaccion_inactivo,
+            registro: $registro, registro_id: $registro_id, tabla: $tabla);
         $this->assertIsArray( $resultado);
         $this->assertStringContainsStringIgnoringCase('Error no existe el registro con el campo a_status', $resultado['mensaje']);
         $this->assertTrue(errores::$error);
@@ -153,8 +153,8 @@ class base_modelosTest extends test {
         $tabla = 'a';
         $registro = array();
         $registro['a_status'] = '';
-        $resultado = $base_modelo->valida_transaccion_activa($aplica_transaccion_inactivo, $registro_id,
-            $tabla, $registro);
+        $resultado = $base_modelo->valida_transaccion_activa(aplica_transaccion_inactivo: $aplica_transaccion_inactivo,
+            registro: $registro, registro_id: $registro_id, tabla: $tabla);
 
         $this->assertIsBool( $resultado);
         $this->assertTrue($resultado);

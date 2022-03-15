@@ -59,7 +59,7 @@ class base_modelos extends validacion
 
 
     /**
-     * 
+     * P ORDER P INT
      * Válida si una operacion en un registro está inactiva en su campo status data error
      * @param bool $aplica_transaccion_inactivo
      * @param int $registro_id
@@ -67,8 +67,7 @@ class base_modelos extends validacion
      * @param array $registro
      * @return array|bool
      */
-    public function valida_transaccion_activa(bool  $aplica_transaccion_inactivo, int $registro_id, string $tabla,
-                                              array $registro): array|bool
+    public function valida_transaccion_activa(bool  $aplica_transaccion_inactivo, array $registro, int $registro_id, string $tabla): array|bool
     {
         $tabla = trim($tabla);
         if($tabla === ''){
