@@ -34,7 +34,7 @@ class base_modelos extends validacion
     }
 
     /**
-     * PROBADO
+     * PROBADO P ORDER P INT
      * Funcion para validar si una vivienda puede ser o no entregada
      * @param array $cliente
      * @return array|bool
@@ -42,7 +42,7 @@ class base_modelos extends validacion
     public function valida_entrega_cliente(array $cliente): array|bool
     {
         $keys = array('estado_entrega_entregada','estado_entrega_inicial');
-        $valida = $this->valida_statuses($cliente,$keys);
+        $valida = $this->valida_statuses(keys:$keys, registro: $cliente);
         if(errores::$error){
             return $this->error->error('Error al validar cliente', $valida);
         }
