@@ -8,14 +8,14 @@ class base_modelos extends validacion
 {
 
     /**
-     * PROBADO
+     * PROBADO P ORDER P INT
      * Válida los datos de una lista de entrada, debe existir la clase y no pueden venir los elementos vacios
      * También debe existe el namespace models
      * @param string $seccion
      * @param string $accion
      * @return array|bool
      */
-    public function valida_datos_lista_entrada(string $seccion, string $accion): array|bool
+    public function valida_datos_lista_entrada(string $accion, string $seccion): array|bool
     {
         $seccion = str_replace('models\\', '', $seccion);
         $clase_model = 'models\\' . $seccion;

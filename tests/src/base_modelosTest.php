@@ -21,7 +21,7 @@ class base_modelosTest extends test {
         $base_modelo = new base_modelos();
         $seccion = "";
         $accion = "";
-        $resultado = $base_modelo->valida_datos_lista_entrada($seccion, $accion);
+        $resultado = $base_modelo->valida_datos_lista_entrada(accion: $accion, seccion: $seccion);
 
         $this->assertIsArray( $resultado);
         $this->assertStringContainsStringIgnoringCase('Error seccion no puede venir vacio', $resultado['mensaje']);
@@ -31,7 +31,7 @@ class base_modelosTest extends test {
 
         $seccion = "a";
         $accion = "";
-        $resultado = $base_modelo->valida_datos_lista_entrada($seccion, $accion);
+        $resultado = $base_modelo->valida_datos_lista_entrada(accion: $accion, seccion: $seccion);
         $this->assertIsArray( $resultado);
         $this->assertStringContainsStringIgnoringCase('Error no existe la clase', $resultado['mensaje']);
         $this->assertTrue(errores::$error);
@@ -40,7 +40,7 @@ class base_modelosTest extends test {
         $seccion = "prueba";
         $accion = "";
 
-        $resultado = $base_modelo->valida_datos_lista_entrada($seccion, $accion);
+        $resultado = $base_modelo->valida_datos_lista_entrada(accion: $accion, seccion: $seccion);
         $this->assertIsArray( $resultado);
         $this->assertStringContainsStringIgnoringCase('Error no existe la accion', $resultado['mensaje']);
         $this->assertTrue(errores::$error);
@@ -50,7 +50,7 @@ class base_modelosTest extends test {
         $seccion = "prueba";
         $accion = "x";
 
-        $resultado = $base_modelo->valida_datos_lista_entrada($seccion, $accion);
+        $resultado = $base_modelo->valida_datos_lista_entrada(accion: $accion, seccion: $seccion);
         $this->assertIsBool( $resultado);
         $this->assertTrue($resultado);
         $this->assertNotTrue(errores::$error);
