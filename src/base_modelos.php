@@ -4,6 +4,13 @@ namespace gamboamartin\base_modelos;
 use gamboamartin\errores\errores;
 use gamboamartin\validacion\validacion;
 
+/**
+ *  REV
+ *      P ORDER
+ *      P INT
+ *      PROBADO
+ *      FALTA DOC
+ */
 class base_modelos extends validacion
 {
 
@@ -59,7 +66,7 @@ class base_modelos extends validacion
 
 
     /**
-     * P ORDER P INT
+     * P ORDER P INT PROBADO
      * Válida si una operacion en un registro está inactiva en su campo status data error
      * @param bool $aplica_transaccion_inactivo
      * @param int $registro_id
