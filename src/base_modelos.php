@@ -66,7 +66,7 @@ class base_modelos extends validacion
 
 
     /**
-     * P ORDER P INT PROBADO ERRORREV
+     * FULL
      * Válida si una operacion en un registro está inactiva en su campo status data error
      * @param bool $aplica_transaccion_inactivo
      * @param int $registro_id
