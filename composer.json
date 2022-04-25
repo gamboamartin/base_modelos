@@ -8,7 +8,8 @@
     "autoload": {
         "psr-4": {
             "gamboamartin\\base_modelos\\": "src/",
-            "gamboamartin\\test\\": "tests/"
+            "gamboamartin\\test\\": "tests/",
+            "config\\": "config"
         }
     },
     "authors": [

@@ -66,7 +66,7 @@ class base_modelos extends validacion
 
 
     /**
-     * P ORDER P INT PROBADO
+     * P ORDER P INT PROBADO ERRORREV
      * Válida si una operacion en un registro está inactiva en su campo status data error
      * @param bool $aplica_transaccion_inactivo
      * @param int $registro_id
@@ -78,19 +78,21 @@ class base_modelos extends validacion
     {
         $tabla = trim($tabla);
         if($tabla === ''){
-            return $this->error->error('Error la tabla esta vacia', $tabla);
+            return $this->error->error(mensaje: 'Error la tabla esta vacia', data: $tabla,params: get_defined_vars());
         }
         if (!$aplica_transaccion_inactivo) {
             if ($registro_id <= 0) {
-                return $this->error->error('Error el id debe ser mayor a 0', $registro_id);
+                return $this->error->error(mensaje:'Error el id debe ser mayor a 0',data: $registro_id,
+                    params: get_defined_vars());
             }
             $key = $tabla . '_status';
             if (!isset($registro[$key])) {
-                return $this->error->error('Error no existe el registro con el campo ' . $tabla . '_status',
-                    $registro);
+                return $this->error->error(mensaje:'Error no existe el registro con el campo ' . $tabla . '_status',
+                    data:$registro,params: get_defined_vars());
             }
             if ($registro[$tabla . '_status'] === 'inactivo') {
-                return $this->error->error('Error el registro no puede ser manipulado', $registro);
+                return $this->error->error(mensaje:'Error el registro no puede ser manipulado',data: $registro,
+                    params: get_defined_vars());
             }
         }
 
