@@ -15,7 +15,7 @@ class base_modelos extends validacion
 {
 
     /**
-     * PROBADO P ORDER P INT
+     * FULL
      * Válida los datos de una lista de entrada, debe existir la clase y no pueden venir los elementos vacios
      * También debe existe el namespace models
      * @param string $seccion
@@ -28,13 +28,14 @@ class base_modelos extends validacion
         $clase_model = 'models\\' . $seccion;
 
         if ($seccion === '') {
-            return $this->error->error('Error seccion no puede venir vacio', $seccion);
+            return $this->error->error(mensaje: 'Error seccion no puede venir vacio',data:  $seccion,
+                params: get_defined_vars());
         }
         if (!class_exists($clase_model)) {
-            return $this->error->error('Error no existe la clase', $seccion);
+            return $this->error->error(mensaje:'Error no existe la clase', data:$seccion, params: get_defined_vars());
         }
         if ($accion === '') {
-            return $this->error->error('Error no existe la accion', $accion);
+            return $this->error->error(mensaje:'Error no existe la accion', data:$accion, params: get_defined_vars());
         }
 
         return true;
