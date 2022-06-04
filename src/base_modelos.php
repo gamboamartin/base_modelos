@@ -67,33 +67,33 @@ class base_modelos extends validacion
 
 
     /**
-     * FULL
+     *
      * Válida si una operacion en un registro está inactiva en su campo status data error
+     * @version 1.0.0
      * @param bool $aplica_transaccion_inactivo
      * @param int $registro_id
      * @param string $tabla
      * @param array $registro
      * @return array|bool
      */
-    public function valida_transaccion_activa(bool  $aplica_transaccion_inactivo, array $registro, int $registro_id, string $tabla): array|bool
+    public function valida_transaccion_activa(bool  $aplica_transaccion_inactivo, array $registro,
+                                              int $registro_id, string $tabla): array|bool
     {
         $tabla = trim($tabla);
         if($tabla === ''){
-            return $this->error->error(mensaje: 'Error la tabla esta vacia', data: $tabla,params: get_defined_vars());
+            return $this->error->error(mensaje: 'Error la tabla esta vacia', data: $tabla);
         }
         if (!$aplica_transaccion_inactivo) {
             if ($registro_id <= 0) {
-                return $this->error->error(mensaje:'Error el id debe ser mayor a 0',data: $registro_id,
-                    params: get_defined_vars());
+                return $this->error->error(mensaje:'Error el id debe ser mayor a 0',data: $registro_id);
             }
             $key = $tabla . '_status';
             if (!isset($registro[$key])) {
                 return $this->error->error(mensaje:'Error no existe el registro con el campo ' . $tabla . '_status',
-                    data:$registro,params: get_defined_vars());
+                    data:$registro);
             }
             if ($registro[$tabla . '_status'] === 'inactivo') {
-                return $this->error->error(mensaje:'Error el registro no puede ser manipulado',data: $registro,
-                    params: get_defined_vars());
+                return $this->error->error(mensaje:'Error el registro no puede ser manipulado',data: $registro);
             }
         }
 
