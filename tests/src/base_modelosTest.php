@@ -33,7 +33,7 @@ class base_modelosTest extends test {
         $accion = "";
         $resultado = $base_modelo->valida_datos_lista_entrada(accion: $accion, seccion: $seccion);
         $this->assertIsArray( $resultado);
-        $this->assertStringContainsStringIgnoringCase('Error no existe la clase', $resultado['mensaje']);
+        $this->assertStringContainsStringIgnoringCase('Error no existe la accion', $resultado['mensaje']);
         $this->assertTrue(errores::$error);
         errores::$error = false;
 
@@ -59,54 +59,7 @@ class base_modelosTest extends test {
         errores::$error = false;
     }
 
-    public function test_valida_entrega_cliente(): void
-    {
-        errores::$error = false;
-        $base_modelo = new base_modelos();
-        $cliente = array();
-        $resultado = $base_modelo->valida_entrega_cliente($cliente);
-        $this->assertIsArray( $resultado);
-        $this->assertStringContainsStringIgnoringCase('Error al validar cliente', $resultado['mensaje']);
-        $this->assertTrue(errores::$error);
-        errores::$error = false;
-
-        $cliente = array();
-        $cliente['estado_entrega_entregada'] = 'activo';
-        $resultado = $base_modelo->valida_entrega_cliente($cliente);
-        $this->assertIsArray( $resultado);
-        $this->assertStringContainsStringIgnoringCase('Error al validar cliente', $resultado['mensaje']);
-        $this->assertTrue(errores::$error);
-        errores::$error = false;
-
-        $cliente = array();
-        $cliente['estado_entrega_entregada'] = 'activo';
-        $cliente['estado_entrega_inicial'] = 'activo';
-        $resultado = $base_modelo->valida_entrega_cliente($cliente);
-        $this->assertIsArray( $resultado);
-        $this->assertStringContainsStringIgnoringCase('Error la vivienda ha sido entregada', $resultado['mensaje']);
-        $this->assertTrue(errores::$error);
-
-        errores::$error = false;
-
-        $cliente = array();
-        $cliente['estado_entrega_entregada'] = 'inactivo';
-        $cliente['estado_entrega_inicial'] = 'activo';
-        $resultado = $base_modelo->valida_entrega_cliente($cliente);
-        $this->assertIsArray( $resultado);
-        $this->assertStringContainsStringIgnoringCase('Error la vivienda no puede ser entregada', $resultado['mensaje']);
-        $this->assertTrue(errores::$error);
-
-        errores::$error = false;
-
-        $cliente = array();
-        $cliente['estado_entrega_entregada'] = 'inactivo';
-        $cliente['estado_entrega_inicial'] = 'inactivo';
-        $resultado = $base_modelo->valida_entrega_cliente($cliente);
-        $this->assertIsBool( $resultado);
-        $this->assertTrue($resultado);
-        $this->assertNotTrue(errores::$error);
-
-    }
+    
 
     public function test_valida_transaccion_activa(): void
     {
