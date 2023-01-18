@@ -1,7 +1,6 @@
 {
     "name": "gamboa.martin/base_modelos",
     "minimum-stability": "stable",
-    "version": "1.0.0",
     "description": "Validaciones basicas",
     "type": "library",
     "license": "GPL-3.0-or-later",
