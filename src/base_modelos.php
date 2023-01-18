@@ -40,7 +40,7 @@ class base_modelos extends validacion
      * @param array $registro almacena en un arreglo todos los datos del registro
      * @return array|bool indica que debe retornar un valor booleano, verdadero o falso si se cumplen las validaciones
      */
-    public function valida_transaccion_activa(bool  $aplica_transaccion_inactivo, array $registro,
+    final public function valida_transaccion_activa(bool  $aplica_transaccion_inactivo, array $registro,
                                               int $registro_id, string $tabla): array|bool
     {
         $tabla = trim($tabla);
