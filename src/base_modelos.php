@@ -16,7 +16,7 @@ class base_modelos extends validacion
      * @param string $accion Accion en ejecucion
      * @return array|bool
      */
-    public function valida_datos_lista_entrada(string $accion, string $seccion): array|bool
+    final public function valida_datos_lista_entrada(string $accion, string $seccion): array|bool
     {
         $seccion = str_replace('models\\', '', $seccion);
         if ($seccion === '') {
