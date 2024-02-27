@@ -33,7 +33,6 @@ class base_modelos extends validacion
     /**
      *
      * Válida si una operacion en un registro está inactiva en su campo status data error
-     * @version 1.0.0
      * @param bool $aplica_transaccion_inactivo recibe el valor verdadero o falso del estado de la transaccion
      * @param int $registro_id recibe el identificador del registro de la base de datos
      * @param string $tabla almacena el nombre de la tabla en la base de datos
