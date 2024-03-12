@@ -31,16 +31,17 @@ class base_modelos extends validacion
 
 
     /**
-     *
+     * POR DOCUMENTAR EN WIKI
      * Válida si una operacion en un registro está inactiva en su campo status data error
      * @param bool $aplica_transaccion_inactivo recibe el valor verdadero o falso del estado de la transaccion
      * @param int $registro_id recibe el identificador del registro de la base de datos
      * @param string $tabla almacena el nombre de la tabla en la base de datos
      * @param array $registro almacena en un arreglo todos los datos del registro
-     * @return array|bool indica que debe retornar un valor booleano, verdadero o falso si se cumplen las validaciones
+     * @return array|true indica que debe retornar un valor booleano, verdadero o falso si se cumplen las validaciones
+     * @version 3.2.0
      */
     final public function valida_transaccion_activa(bool  $aplica_transaccion_inactivo, array $registro,
-                                              int $registro_id, string $tabla): array|bool
+                                              int $registro_id, string $tabla): array|true
     {
         $tabla = trim($tabla);
         if($tabla === ''){
